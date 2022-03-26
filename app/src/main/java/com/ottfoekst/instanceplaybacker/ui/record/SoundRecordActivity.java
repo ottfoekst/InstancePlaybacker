@@ -3,20 +3,18 @@ package com.ottfoekst.instanceplaybacker.ui.record;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.ottfoekst.instanceplaybacker.R;
 import com.ottfoekst.instanceplaybacker.model.data.SoundData;
 
 public class SoundRecordActivity extends AppCompatActivity {
     // TODO どこかに定数定義されてないの？
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
 
-    private SoundData data;
     private SoundRecordButton recordButton = null;
     private SoundPlayButton playButton = null;
 
@@ -41,26 +39,17 @@ public class SoundRecordActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        // TODO activity_sound_record.xmlの反映。その際findViewByIdを使ってButtonを取得？
-
-        data = new SoundData(getExternalCacheDir().getAbsolutePath() + "/audiorecordtest.3gp");
+        setContentView(R.layout.activity_sound_record);
 
         ActivityCompat.requestPermissions(this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
 
-        LinearLayout ll = new LinearLayout(this);
-        recordButton = new SoundRecordButton(this, data.getFileName());
-        ll.addView(recordButton,
-                new LinearLayout.LayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        0));
-        playButton = new SoundPlayButton(this, data.getFileName());
-        ll.addView(playButton,
-                new LinearLayout.LayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        0));
-        setContentView(ll);
+        SoundData data = new SoundData(getExternalCacheDir().getAbsolutePath() + "/audiorecordtest.3gp");
+
+        recordButton = findViewById(R.id.record_button);
+        recordButton.setFileName(data.getFileName());
+
+        playButton = findViewById(R.id.play_button);
+        playButton.setFileName(data.getFileName());
     }
 
     @Override

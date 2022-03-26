@@ -1,15 +1,20 @@
 package com.ottfoekst.instanceplaybacker.ui.record;
 
 import android.content.Context;
+import android.util.AttributeSet;
 import android.view.View;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.ottfoekst.instanceplaybacker.model.entity.SoundRecorder;
 import com.ottfoekst.instanceplaybacker.model.entity.SoundRecorderFactory;
 
+import lombok.Setter;
+
 public class SoundRecordButton extends AppCompatButton {
-    private final String fileName;
+    @Setter
+    private String fileName;
     private SoundRecorder recorder;
     private boolean mStartRecording = true;
 
@@ -25,9 +30,8 @@ public class SoundRecordButton extends AppCompatButton {
         }
     };
 
-    public SoundRecordButton(Context ctx, String fileName) {
-        super(ctx);
-        this.fileName = fileName;
+    public SoundRecordButton(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
         setText("Start recording");
         setOnClickListener(clicker);
     }

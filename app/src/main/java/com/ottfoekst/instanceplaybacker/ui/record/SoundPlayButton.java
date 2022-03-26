@@ -1,15 +1,20 @@
 package com.ottfoekst.instanceplaybacker.ui.record;
 
 import android.content.Context;
+import android.util.AttributeSet;
 import android.view.View;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.ottfoekst.instanceplaybacker.model.entity.SoundPlayer;
 import com.ottfoekst.instanceplaybacker.model.entity.SoundPlayerFactory;
 
+import lombok.Setter;
+
 public class SoundPlayButton extends AppCompatButton {
-    private final String fileName;
+    @Setter
+    private String fileName;
     private SoundPlayer player = null;
     private boolean mStartPlaying = true;
 
@@ -25,9 +30,8 @@ public class SoundPlayButton extends AppCompatButton {
         }
     };
 
-    public SoundPlayButton(Context ctx, String fileName) {
-        super(ctx);
-        this.fileName = fileName;
+    public SoundPlayButton(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
         setText("Start playing");
         setOnClickListener(clicker);
     }
