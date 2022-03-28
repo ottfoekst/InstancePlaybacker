@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.record.SoundRecordActivity">
 
-    <com.ottfoekst.instanceplaybacker.ui.record.SoundRecordButton
+    <com.ottfoekst.instanceplaybacker.ui.record.SoundToggleButton
         android:id="@+id/record_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Record"
+        android:textOff="Start recording"
+        android:textOn="Stop recording"
+        android:checked="false"
         app:layout_constraintBottom_toTopOf="@+id/play_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -18,12 +20,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.833" />
 
-    <com.ottfoekst.instanceplaybacker.ui.record.SoundPlayButton
+    <com.ottfoekst.instanceplaybacker.ui.record.SoundToggleButton
         android:id="@+id/play_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="300dp"
-        android:text="Play"
+        android:textOff="Start playing"
+        android:textOn="Stop playing"
+        android:checked="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

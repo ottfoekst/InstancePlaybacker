@@ -1,4 +1,4 @@
-package com.ottfoekst.instanceplaybacker.model.entity;
+package com.ottfoekst.instanceplaybacker.model.entity.recorder;
 
 import android.media.MediaRecorder;
 
