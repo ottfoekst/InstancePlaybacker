@@ -5,9 +5,9 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ottfoekst.instanceplaybacker.R;
-import com.ottfoekst.instanceplaybacker.model.data.SoundData;
 import com.ottfoekst.instanceplaybacker.model.service.sound.RepeatSoundPlayer;
 import com.ottfoekst.instanceplaybacker.model.service.sound.RepeatSoundRecorder;
+import com.ottfoekst.instanceplaybacker.ui.view.SoundToggleButton;
 
 public class SoundRecordActivity extends AppCompatActivity {
     private SoundToggleButton recordButton = null;
@@ -18,13 +18,13 @@ public class SoundRecordActivity extends AppCompatActivity {
         super.onCreate(icicle);
         setContentView(R.layout.activity_sound_record);
 
-        SoundData data = new SoundData(getExternalCacheDir().getAbsolutePath() + "/audiorecordtest.3gp");
+        String fileName = getExternalCacheDir().getAbsolutePath() + "/audiorecordtest.3gp";
 
-        recordButton = findViewById(R.id.record_button);
-        recordButton.setSoundable(new RepeatSoundRecorder(data.getFileName()));
+        recordButton = findViewById(R.id.recordButton);
+        recordButton.setSoundable(new RepeatSoundRecorder(fileName));
 
-        playButton = findViewById(R.id.play_button);
-        playButton.setSoundable(new RepeatSoundPlayer(data.getFileName()));
+        playButton = findViewById(R.id.playButton);
+        playButton.setSoundable(new RepeatSoundPlayer(fileName));
     }
 
     @Override

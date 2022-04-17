@@ -1,4 +1,4 @@
-package com.ottfoekst.instanceplaybacker.ui.record;
+package com.ottfoekst.instanceplaybacker.ui.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

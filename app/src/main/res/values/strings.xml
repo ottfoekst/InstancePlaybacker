@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">InstancePlaybacker</string>
+    <string name="name">名前</string>
+    <string name="name_hint">例:歓声</string>
+    <string name="recording">録音</string>
+    <string name="playing">再生</string>
+    <string name="start_recording">Start recording</string>
+    <string name="stop_recording">Stop recording</string>
+    <string name="start_playing">Start playing</string>
+    <string name="stop_playing">Stop playing</string>
 </resources>
