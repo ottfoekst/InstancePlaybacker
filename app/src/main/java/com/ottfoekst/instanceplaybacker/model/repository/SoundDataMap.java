@@ -10,10 +10,15 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 public class SoundDataMap implements SoundDataRepository {
-    private final Map<String, SoundData> map = new HashMap<>();
+    private final Map<Integer, SoundData> map = new HashMap<>();
 
     @Override
-    public SoundData getSoundData(String name) {
-        return map.get(name);
+    public void put(SoundData soundData) {
+        map.put(soundData.getId(), soundData);
+    }
+
+    @Override
+    public SoundData getSoundData(int id) {
+        return map.get(id);
     }
 }
